@@ -1,14 +1,35 @@
 <template>
   <div id="app">
-   <Home></Home>
+    <Login v-if="this.user.oid==''"
+           v-on:listenToLoginEvent="showLogin"></Login>
+   <Home v-else></Home>
   </div>
 </template>
 
 <script>
 import Home from "./components/Home";
+import Login from "./components/pages/Login";
 export default {
   name: 'App',
-  components: {Home}
+  components: {Login, Home},
+  data(){
+    return {
+      user:{
+             username:'',
+             oid:''
+         }
+      }
+    },
+    methods: {
+      showLogin: function(params){
+        var datajson=JSON.parse(params);
+        console.log("datajson")
+        console.log(datajson)
+        this.user.username=datajson.username;
+        this.user.oid=datajson.oid;
+      }
+    }
+
 }
 </script>
 

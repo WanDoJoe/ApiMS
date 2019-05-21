@@ -11,11 +11,16 @@ export default new Router({
       name: 'Index',
       component:  ()=>import("@/components/pages/index")
     },
+    // {
+    //   path: '/home',
+    //   name: 'Home',
+    //   component: ()=>import("@/components/Home")
+    //   // ,replace:false
+    // }
     {
-      path: '/home',
-      name: 'Home',
-      component: ()=>import("@/components/Home")
-      // ,replace:false
+      path: "/login",
+      name: "Login",
+      component: ()=>import("@/components/pages/Login")
     }
     ,
     {
